@@ -1,0 +1,79 @@
+commit 72998961edf9fceff05504b249d97781a3883471
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Thu Nov 19 14:48:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Thu Nov 19 14:48:00 2026 +0400
+
+    Add final report and AI disclosure
+
+commit 1298a48a1d74454000982d5fbe95a439e000b192
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Thu Nov 19 09:37:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Thu Nov 19 09:37:00 2026 +0400
+
+    Add experiment results and generated samples
+
+commit b98db44c309318a64d470b064ec42272a0819d4f
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Wed Nov 18 17:26:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Wed Nov 18 17:26:00 2026 +0400
+
+    Add text generation and sampling methods
+
+commit 53f72dc7cb68bb4f4da39dbc51251c7aa321ed00
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Wed Nov 18 10:43:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Wed Nov 18 10:43:00 2026 +0400
+
+    Implement bigram baseline
+
+commit 167fabb80c3702ae3c762f29919f66abfdce9337
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Tue Nov 17 16:28:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Tue Nov 17 16:28:00 2026 +0400
+
+    Add experiment training logs
+
+commit 13bdf1e3fb4de19b3957622a99e49455b1970f25
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Tue Nov 17 09:52:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Tue Nov 17 09:52:00 2026 +0400
+
+    Implement model training pipeline
+
+commit 920810d3a95aa39ad5858503a57cba00982aeef1
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Mon Nov 16 21:35:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Mon Nov 16 21:35:00 2026 +0400
+
+    Add model and ablation configurations
+
+commit 5d226ca3d0352f1cc5a484063ca8eaacb5f1e1b0
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Mon Nov 16 18:07:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Mon Nov 16 18:07:00 2026 +0400
+
+    Implement GPT architecture
+
+commit 9b9a4230182a0ab23d16b978f87d6d2faa502b80
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Sun Nov 15 14:43:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Sun Nov 15 14:43:00 2026 +0400
+
+    Add trained BPE vocabulary
+
+commit 47762c8bce89b0978e7a972c7a00a053d2501a4f
+Author:     AIengineering2007 <bayazitoruc07@gmail.com>
+AuthorDate: Sun Nov 15 09:26:00 2026 +0400
+Commit:     AIengineering2007 <bayazitoruc07@gmail.com>
+CommitDate: Sun Nov 15 09:26:00 2026 +0400
+
+    Implement byte-level BPE tokenizer
