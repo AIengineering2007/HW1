@@ -73,10 +73,29 @@ class BPETokenizer:
     def load(cls,path: str):
         with open(path,"r",encoding="utf-8") as f:
             data=json.load(f)
+
+        if not isinstance(data,dict) or "merges" not in data:
+            raise ValueError("Invalid tokenizer file")
+
+        if not isinstance(data["merges"],list):
+            raise ValueError("Merges must be a list")
+
         tokenizer=cls()
+
         for pair in data["merges"]:
+            if not isinstance(pair,list) or len(pair)!=2:
+                raise ValueError("Invalid merge pair")
+
+            if not all(isinstance(token_id,int) and token_id in tokenizer.token_bytes for token_id in pair):
+                raise ValueError("Invalid token ID in merge pair")
+
             pair=tuple(pair)
             new_id=256+len(tokenizer.merges)
+
             tokenizer.merges.append(pair)
             tokenizer.token_bytes[new_id]=tokenizer.token_bytes[pair[0]]+tokenizer.token_bytes[pair[1]]
+
+        if data.get("vocab_size")!=256+len(tokenizer.merges):
+            raise ValueError("Vocabulary size mismatch")
+
         return tokenizer
