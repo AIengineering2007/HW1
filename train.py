@@ -86,6 +86,12 @@ def prepare_data(config):
 
 
 def get_batch(data, batch_size, block_size, device):
+    if batch_size <= 0:
+        raise ValueError("batch_size must be positive")
+
+    if block_size <= 0:
+        raise ValueError("block_size must be positive")
+
     max_index = len(data) - block_size - 1
 
     if max_index <= 0:
@@ -93,7 +99,7 @@ def get_batch(data, batch_size, block_size, device):
 
     indices = torch.randint(
         0,
-        max_index,
+        max_index + 1,
         (batch_size,)
     )
 
@@ -108,7 +114,6 @@ def get_batch(data, batch_size, block_size, device):
     ])
 
     return x.to(device), y.to(device)
-
 
 def get_lr(step, max_lr, max_steps, warmup_steps):
     min_lr = 0.1 * max_lr
