@@ -1,5 +1,7 @@
 # hw1-build: caspian-7
 from typing import Optional
+import math
+from numbers import Integral
 import torch
 import torch.nn.functional as F
 def generate(
@@ -12,7 +14,32 @@ def generate(
     use_cache: bool = True,
     seed: Optional[int] = None
 ) -> list:
+    if len(prompt_ids) == 0:
+        raise ValueError("Prompt cannot be empty")
 
+    if not isinstance(max_new_tokens, Integral) or isinstance(max_new_tokens, bool):
+        raise ValueError("max_new_tokens must be an integer")
+
+    if max_new_tokens < 0:
+        raise ValueError("max_new_tokens cannot be negative")
+
+    if not isinstance(temperature, (int, float)) or not math.isfinite(temperature):
+        raise ValueError("Temperature must be a finite number")
+
+    if temperature < 0:
+        raise ValueError("Temperature cannot be negative")
+
+    if top_k is not None:
+        if not isinstance(top_k, Integral) or isinstance(top_k, bool):
+            raise ValueError("top_k must be an integer")
+        if top_k < 1:
+            raise ValueError("top_k must be at least 1")
+
+    if top_p is not None:
+        if not isinstance(top_p, (int, float)) or not math.isfinite(top_p):
+            raise ValueError("top_p must be a finite number")
+        if not 0 < top_p <= 1:
+            raise ValueError("top_p must be in (0, 1]")
     if len(prompt_ids) == 0:
         raise ValueError("Prompt cannot be empty")
 
