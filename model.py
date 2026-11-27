@@ -18,6 +18,27 @@ class GPTConfig:
     # Experiment switch (Part E). "none" = the exact Part B architecture.
     # "no_position_embedding" = A1, "post_ln" = A2. Any other value is ignored.
     ablation: str = "none"
+    def __post_init__(self):
+        if self.vocab_size <= 0:
+            raise ValueError("vocab_size must be positive")
+
+        if self.block_size <= 0:
+            raise ValueError("block_size must be positive")
+
+        if self.n_layer <= 0:
+            raise ValueError("n_layer must be positive")
+
+        if self.n_head <= 0:
+            raise ValueError("n_head must be positive")
+
+        if self.n_embd <= 0:
+            raise ValueError("n_embd must be positive")
+
+        if self.n_embd % self.n_head != 0:
+            raise ValueError("n_embd must be divisible by n_head")
+
+        if not 0 <= self.dropout <= 1:
+            raise ValueError("dropout must be between 0 and 1")
 
 
 
