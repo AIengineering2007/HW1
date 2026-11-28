@@ -116,6 +116,18 @@ def get_batch(data, batch_size, block_size, device):
     return x.to(device), y.to(device)
 
 def get_lr(step, max_lr, max_steps, warmup_steps):
+    if max_steps <= 0:
+        raise ValueError("max_steps must be positive")
+
+    if warmup_steps < 0 or warmup_steps >= max_steps:
+        raise ValueError("warmup_steps must be between 0 and max_steps - 1")
+
+    if step < 1 or step > max_steps:
+        raise ValueError("step must be between 1 and max_steps")
+
+    if not math.isfinite(max_lr) or max_lr <= 0:
+        raise ValueError("max_lr must be a positive finite number")
+
     min_lr = 0.1 * max_lr
 
     if step <= warmup_steps:
@@ -132,7 +144,6 @@ def get_lr(step, max_lr, max_steps, warmup_steps):
     cosine = 0.5 * (1.0 + math.cos(math.pi * progress))
 
     return min_lr + cosine * (max_lr - min_lr)
-
 
 @torch.no_grad()
 def estimate_loss(model, val_ids, config, device):
