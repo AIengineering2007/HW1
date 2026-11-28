@@ -40,21 +40,6 @@ def generate(
             raise ValueError("top_p must be a finite number")
         if not 0 < top_p <= 1:
             raise ValueError("top_p must be in (0, 1]")
-    if len(prompt_ids) == 0:
-        raise ValueError("Prompt cannot be empty")
-
-    if max_new_tokens < 0:
-        raise ValueError("max_new_tokens cannot be negative")
-
-    if temperature < 0:
-        raise ValueError("Temperature cannot be negative")
-
-    if top_k is not None and top_k < 1:
-        raise ValueError("top_k must be at least 1")
-
-    if top_p is not None and not 0 < top_p <= 1:
-        raise ValueError("top_p must be in (0, 1]")
-
     block_size = model.config.block_size
 
     if len(prompt_ids) + max_new_tokens > block_size:
